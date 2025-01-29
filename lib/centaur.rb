@@ -22,7 +22,7 @@ class Centaur
 
   def run
    @crankiness += 1
-   if @crankiness < 3
+   if @crankiness <= 3
      "Clop clop clop clop!!!"
    else
      "NO!"
@@ -31,9 +31,9 @@ class Centaur
 
   def cranky?
     if @crankiness < 3
-      "false"
+      false
     else
-      "true"
+      true
     end
   end
 
@@ -53,7 +53,9 @@ class Centaur
   def lay_down
     @crankiness = 3
     @standing = false
+    "NO!"
     @laying = true
+    "NO!"
   end
 
   def laying?
@@ -63,5 +65,4 @@ class Centaur
   def stand_up
     @standing = true
   end
-
 end

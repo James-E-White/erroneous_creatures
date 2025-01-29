@@ -1,4 +1,4 @@
-require '../lib/centaur'
+require './lib/centaur'
 
 RSpec.describe Centaur do
   it "has a name" do
@@ -86,15 +86,14 @@ RSpec.describe Centaur do
     expect(centaur.laying?).to eq(true)
   end
 
-  xit "can sleep when laying down" do
+  it "can sleep when laying down" do
     centaur = Centaur.new("George","Palomino")
-
-    centaur.lay_down
-
+    centaur.crankiness = 0
+  
     expect(centaur.sleep).to eq("NO!")
   end
 
-  xit "cannot shoot a bow when laying down" do
+  it "cannot shoot a bow when laying down" do
     centaur = Centaur.new("George","Palomino")
 
     centaur.lay_down
@@ -102,7 +101,7 @@ RSpec.describe Centaur do
     expect(centaur.shoot).to eq("NO!")
   end
 
-  xit "cannot run when laying down" do
+  it "cannot run when laying down" do
     centaur = Centaur.new("George","Palomino")
 
     centaur.lay_down
@@ -110,7 +109,7 @@ RSpec.describe Centaur do
     expect(centaur.run).to eq("NO!")
   end
 
-  xit "can stand up" do
+  it "can stand up" do
     centaur = Centaur.new("George","Palomino")
 
     centaur.lay_down
@@ -119,12 +118,9 @@ RSpec.describe Centaur do
     expect(centaur.standing?).to eq(true)
   end
 
-  xit "is no longer cranky after sleeping" do
+  it "is no longer cranky after sleeping" do
     centaur = Centaur.new("George","Palomino")
-
-    centaur.shoot
-    centaur.run
-    centaur.shoot
+    centaur.crankiness = 3
 
     expect(centaur.cranky?).to eq(true)
 
