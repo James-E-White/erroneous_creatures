@@ -44,13 +44,15 @@ RSpec.describe Pirate do
     expect(pirate.cursed?).to eq(false)
 
     pirate.commit_heinous_act
-
+ 
     expect(pirate.cursed?).to eq(false)
 
     pirate.commit_heinous_act
 
     expect(pirate.cursed?).to eq(false)
 
+    pirate.commit_heinous_act
+    pirate.commit_heinous_act
     pirate.commit_heinous_act
 
     expect(pirate.cursed?).to eq(true)
